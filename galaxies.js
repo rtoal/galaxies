@@ -153,6 +153,10 @@
   const canvasHeight = canvas.height;
   const halfCanvasWidth = canvasWidth / 2;
   const halfCanvasHeight = canvasHeight / 2;
+  const colors = [
+    '#ffffcc', '#ccffff','#ffccff','#ccffcc','#ccccff','#ffcccc',
+    '#80ffbf','#bf80ff','#ffbf80','#bfff80','#80bfff','#ff80bf',
+  ];
   const ctx = canvas.getContext("2d");
 
   function startSimulation() {
@@ -177,6 +181,7 @@
     // Draw each galaxy
     for (let i = 0; i < universe.galaxies.length; ++i) {
       const gt = universe.galaxies[i];
+      ctx.fillStyle = colors[i];
 
       // Draw each star in the galaxy
       for (let star of gt.stars) {
@@ -244,7 +249,6 @@
   function drawAndUpdate() {
     ctx.fillStyle = "rgb(0,0,0)";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-    ctx.fillStyle = "rgb(255,255,255)";
 
     drawUniverse();
 
